@@ -147,7 +147,6 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
     for (var i = 0; i < lotteryweek.length; i++) {
         if(lotteryweek[i] == getweekday) weekday = i;
     }
-    alert(weekday);
 //点击按钮进行计算
 	$("#VS").click(function(){
 		orange_lottery_judge(weekday);
