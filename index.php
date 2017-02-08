@@ -1,5 +1,5 @@
 <?php
-$baiduurl="http://www.baidu.com/s?wd=%E6%8E%92%E5%88%97%E4%B8%89&rsv_spt=1&rsv_iqid=0xecadb38000026361&issp=1&f=8&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_sug3=9&rsv_sug1=9&rsv_sug7=101";
+$baiduurl="http://www.baidu.com/s?wd=排列三";
 $return=file_get_contents($baiduurl);
 $regex4="/<div class=\"c-border c-gap-bottom-small\".*?>.*?<\/div>/ism";  
 
