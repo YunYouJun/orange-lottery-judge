@@ -11,7 +11,6 @@ Orange Union (Clash of clans) judge the winning and losing from lottery tickets.
 > 今天星期五，排列三结果2，3，5
 2x3+5=11【奇数，第二位比小。如果相同，比下以位：第三位】
 我方第二位“P"对方第二位”O"
-根据字母图，O比P小，所以这场我方输
-
+根据字母图，O比P小，所以这场我方输。 
 ---------------------------------------
 [原帖地址](http://tieba.baidu.com/p/4932945033?share=9105&fr=share&see_lz=0)
