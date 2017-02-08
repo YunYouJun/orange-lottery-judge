@@ -18,8 +18,13 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
     <title>Orange lottery judge</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 
     <style type="text/css">
+    body{
+    	font-family: "Microsoft Yahei";
+    }
 	.mycircle { 
 		width: 50px;
 		height: 50px;
@@ -36,7 +41,7 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
   </head>
   <body>
   <div class="container">
-	    <div class="panel panel-default col-md-6 col-md-offset-3">
+	    <div class="panel panel-default col-md-8 col-md-offset-2">
 		    <div class="text-center panel-heading">
 			    <h3 class="panel-title">
 			    <?php
@@ -48,7 +53,7 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
 				?>
 				</h3>
 		    </div>
-		    <div class="panel-body col-md-12" align="center">
+		    <div class="panel-body" align="center">
 		    	<div class="col-md-3"></div>
 				<div class="col-md-2 col-xs-4">
 				    <div id="firstnum" class="mycircle text-center">
@@ -69,29 +74,41 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
 				    </div>
 				</div>
 		  	</div>
+		  	<hr>
+		  	<form class="form-inline text-center">
+		  		<div class="form-group has-success input-group input-group-lg">
+		  			<span class="input-group-addon">#</span>
+				  	<input type="text" class="form-control" id="myclancode">
+				</div>
+				<div class="form-group"><i class="btn btn-default btn-lg btn-block glyphicon glyphicon-transfer" id="VS"></i></div>
+				  	<div class="form-group has-error input-group input-group-lg">
+					  <span class="input-group-addon">#</span>
+					  <input type="text" class="form-control" id="enemyclancode">
+				</div>
+		  	</form>
+			<hr>
+			<div class="resultpanel">
+			  	<button id="result" class="btn btn-default btn-block btn-lg">
+				  计算
+				</button>
+			</div>
+			<hr>
 	    </div>
-
-	    <div class="test">
-		  <h1 id="result"></h1>
-		</div>
+		<div class="col-md-2"></div>
    </div>
 
+<script type="text/javascript" src="orange_lottery_judge.js"></script>
 <script type="text/javascript">
-	function lottery_judge(){
-		$('.test').append("<h1>yes</h1>");
-		alert("???");
-	}
-	lottery_judge();
-	alert("sad");
-	function myFunction(){ 
-    alert("你好，我是一个警告框！"); 
-} myFunction();
+	$("#VS").click(function(){
+		orange_lottery_judge();
+	});
+
+	$("#result").click(function(){
+		orange_lottery_judge();
+	});
 </script>
 
 
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
