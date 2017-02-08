@@ -14,10 +14,18 @@ function compare(mycode,enemycode,order){ //比大
 	return big;
 }
 
-function lottery_judge(firstnum,secondnum,thirdnum,mycode,enemycode,weekday){
-	var flag;
+function odevity_judge(){
+	var firstnum = parseInt($("#firstnum").text().replace(/[^0-9]/ig,""));
+	var secondnum = parseInt($("#secondnum").text().replace(/[^0-9]/ig,""));
+	var thirdnum = parseInt($("#thirdnum").text().replace(/[^0-9]/ig,""));
+
 	var count = firstnum*secondnum+thirdnum;
 	var odevity = count%2;
+	return odevity;
+}
+
+function lottery_judge(mycode,enemycode,weekday){
+	var flag;
 	//使用当前日期
 	// var date = new Date();   
 	// var weekday	= date.getDay();
@@ -25,18 +33,14 @@ function lottery_judge(firstnum,secondnum,thirdnum,mycode,enemycode,weekday){
 	else if (weekday>3) {
 		weekday = weekday -3;
 	}
+	var odevity = odevity_judge();
 	if(odevity==1){
 		//奇数
 		flag = compare(enemycode,mycode,weekday);
 	}else if(odevity==0){
 		//偶数
 		flag = compare(mycode,enemycode,weekday);
-	}else{
-		$('#result').removeClass();
-		$('#result').addClass("btn-warning");
-		$('#result').append('<i class="glyphicon glyphicon-warning-sign"></i> - 出错 - <i class="glyphicon glyphicon-warning-sign"></i>');
 	}
-	
 	if(flag>0){
 		$('#result').removeClass();
 		$('#result').addClass("btn btn-block btn-success btn-lg");
@@ -59,10 +63,7 @@ function lottery_judge(firstnum,secondnum,thirdnum,mycode,enemycode,weekday){
 function orange_lottery_judge(weekday){  
 	var myclancode = $("#myclancode").val().replace(/#/g,"").toUpperCase();
 	var enemyclancode = $("#enemyclancode").val().replace(/#/g,"").toUpperCase();
-	var firstnum = parseInt($("#firstnum").text().replace(/[^0-9]/ig,""));
-	var secondnum = parseInt($("#secondnum").text().replace(/[^0-9]/ig,""));
-	var thirdnum = parseInt($("#thirdnum").text().replace(/[^0-9]/ig,""));
-	lottery_judge(firstnum,secondnum,thirdnum,myclancode,enemyclancode,weekday);
+	lottery_judge(myclancode,enemyclancode,weekday);
 }
 // 定输赢方式：
 // -按彩票（排列三）的三位数字第一位 ‘乘以’ 第二位 ‘加上’ 第三位

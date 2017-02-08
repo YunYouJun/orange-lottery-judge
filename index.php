@@ -73,6 +73,10 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
 				</div>
 		  	</div>
 		  	<hr>
+		  	<h3 id="rule" class="text-center">
+		  		规则：
+		  	</h3>
+		  	<hr>
             <form class="form-inline text-center">
                 <div class="form-group">
                     <input type="date" id="today" class="form-control input-lg" readonly="">
@@ -93,7 +97,7 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
 		  	<form class="form-inline text-center">
 		  		<div class="form-group has-success input-group input-group-lg">
 		  			<span class="input-group-addon">#</span>
-				  	<input type="text" class="form-control" id="myclancode" placeholder="我方部落标签">
+				  	<input type="text" class="form-control" id="myclancode" placeholder="我方部落标签" autofocus="autofocus" autocomplete="autocomplete">
 				</div>
 				<div class="form-group"><i class="btn btn-default btn-lg btn-block glyphicon glyphicon-transfer" id="VS"></i></div>
 				  	<div class="form-group has-error input-group input-group-lg">
@@ -147,6 +151,20 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
     for (var i = 0; i < lotteryweek.length; i++) {
         if(lotteryweek[i] == getweekday) weekday = i;
     }
+    //rule
+    var odevity = odevity_judge();
+    var big_cn;
+    if(odevity==1){
+		//奇数
+		big_cn="小";
+	}else if(odevity==0){
+		//偶数
+		big_cn="大";
+	}
+	var rule ="规则：第"+weekday+"位比"+big_cn;
+	$("#rule").html(rule);
+
+
 //点击按钮进行计算
 	$("#VS").click(function(){
 		orange_lottery_judge(weekday);
@@ -155,6 +173,13 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
 	$("#result").click(function(){
 		orange_lottery_judge(weekday);
 	});
+    //为keyListener方法注册按键事件
+    document.onkeydown=keyListener;
+    function keyListener(e){
+        if(e.keyCode == 13){
+         orange_lottery_judge(weekday);
+        }
+    }
 </script>
 
 
