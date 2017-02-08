@@ -14,12 +14,13 @@ function compare(mycode,enemycode,order){ //比大
 	return big;
 }
 
-function lottery_judge(firstnum,secondnum,thirdnum,mycode,enemycode){
+function lottery_judge(firstnum,secondnum,thirdnum,mycode,enemycode,weekday){
 	var flag;
 	var count = firstnum*secondnum+thirdnum;
 	var odevity = count%2;
-	var date = new Date(); //获取当前日期，=。=如果开奖和查看隔了一天怎么办，……之后再说
-	var weekday	= date.getDay();
+	//使用当前日期
+	// var date = new Date();   
+	// var weekday	= date.getDay();
 	if(weekday==0)	weekday = 4;
 	else if (weekday>3) {
 		weekday = weekday -3;
@@ -55,18 +56,18 @@ function lottery_judge(firstnum,secondnum,thirdnum,mycode,enemycode){
 	}
 }
 
-function orange_lottery_judge(){  
+function orange_lottery_judge(weekday){  
 	var myclancode = $("#myclancode").val().replace(/#/g,"").toUpperCase();
 	var enemyclancode = $("#enemyclancode").val().replace(/#/g,"").toUpperCase();
 	var firstnum = parseInt($("#firstnum").text().replace(/[^0-9]/ig,""));
 	var secondnum = parseInt($("#secondnum").text().replace(/[^0-9]/ig,""));
 	var thirdnum = parseInt($("#thirdnum").text().replace(/[^0-9]/ig,""));
-	lottery_judge(firstnum,secondnum,thirdnum,myclancode,enemyclancode);
+	lottery_judge(firstnum,secondnum,thirdnum,myclancode,enemyclancode,weekday);
 }
 // 定输赢方式：
 // -按彩票（排列三）的三位数字第一位 ‘乘以’ 第二位 ‘加上’ 第三位
 // -计算结果【为奇数-开小】【为偶数-开大】 
-// -当天星期几决定比第几位
+// -当天星期几决定比第几位(星期四五六对应星期一二三)星期日比第四位
 // -字母比数字大 1<9#2PPLGYO对方：# 9OP8VO 
 // 今天星期五，排列三结果2，3，5
 // 2x3+5=11【奇数，第二位比小。如果相同，比下以位：第三位】

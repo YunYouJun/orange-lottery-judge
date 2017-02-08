@@ -3,9 +3,7 @@ $baiduurl="http://www.baidu.com/s?wd=排列三";
 $return=file_get_contents($baiduurl);
 $regex4="/<div class=\"c-border c-gap-bottom-small\".*?>.*?<\/div>/ism";  
 
-
 $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-small\".*?>.*?<\/span>/ism";  
-
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +41,7 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
   <div class="container">
 	    <div class="panel panel-default col-md-8 col-md-offset-2">
 		    <div class="text-center panel-heading">
-			    <h3 class="panel-title">
+			    <h3 id="lotterydate" class="panel-title">
 			    <?php
 			    	if(preg_match_all($regex4, $return, $matches)){  
 					   echo $matches[0][0];
@@ -80,7 +78,7 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
                     <input type="date" id="today" class="form-control input-lg" readonly="">
                 </div>
                 <div class="form-group">
-                    <select id="week" class="form-control input-lg">
+                    <select id="week" class="form-control input-lg" disabled="">
                         <option value="1">星期一</option>
                         <option value="2">星期二</option>
                         <option value="3">星期三</option>
@@ -114,6 +112,7 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
 		<div class="col-md-2"></div>
    </div>
 
+
 <script type="text/javascript" src="orange_lottery_judge.js"></script>
 <script type="text/javascript">
     var today = new Date();
@@ -142,12 +141,20 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
     $("#today").val(CurrentDate);
     $("#week").val(weekday);
 
+    var lotdate = $("#lotterydate").text();
+    var getweekday = lotdate.substring(lotdate.indexOf("(")+1,lotdate.indexOf(")"));
+    var lotteryweek = ["周日","周一","周二","周三","周四","周五","周六"];
+    for (var i = 0; i < lotteryweek.length; i++) {
+        if(lotteryweek[i] == getweekday) weekday = i;
+    }
+    alert(weekday);
+//点击按钮进行计算
 	$("#VS").click(function(){
-		orange_lottery_judge();
+		orange_lottery_judge(weekday);
 	});
 
 	$("#result").click(function(){
-		orange_lottery_judge();
+		orange_lottery_judge(weekday);
 	});
 </script>
 
