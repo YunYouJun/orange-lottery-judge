@@ -75,15 +75,32 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
 				</div>
 		  	</div>
 		  	<hr>
+            <form class="form-inline text-center">
+                <div class="form-group">
+                    <input type="date" id="today" class="form-control input-lg" readonly="">
+                </div>
+                <div class="form-group">
+                    <select id="week" class="form-control input-lg">
+                        <option value="1">星期一</option>
+                        <option value="2">星期二</option>
+                        <option value="3">星期三</option>
+                        <option value="4">星期四</option>
+                        <option value="5">星期五</option>
+                        <option value="6">星期六</option>
+                        <option value="0">星期日</option>
+                    </select>
+                </div>
+            </form>
+            <hr>
 		  	<form class="form-inline text-center">
 		  		<div class="form-group has-success input-group input-group-lg">
 		  			<span class="input-group-addon">#</span>
-				  	<input type="text" class="form-control" id="myclancode">
+				  	<input type="text" class="form-control" id="myclancode" placeholder="我方部落标签">
 				</div>
 				<div class="form-group"><i class="btn btn-default btn-lg btn-block glyphicon glyphicon-transfer" id="VS"></i></div>
 				  	<div class="form-group has-error input-group input-group-lg">
 					  <span class="input-group-addon">#</span>
-					  <input type="text" class="form-control" id="enemyclancode">
+					  <input type="text" class="form-control" id="enemyclancode" placeholder="敌方部落标签">
 				</div>
 		  	</form>
 			<hr>
@@ -99,6 +116,32 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
 
 <script type="text/javascript" src="orange_lottery_judge.js"></script>
 <script type="text/javascript">
+    var today = new Date();
+    var CurrentDate;
+    Year       = today.getFullYear();
+    Month      = today.getMonth()+1; 
+    Day        = today.getDate(); 
+    weekday    = today.getDay();    
+    CurrentDate = Year + "-"; 
+    if (Month >= 10 ) 
+    { 
+        CurrentDate += Month + "-"; 
+    } 
+    else
+    { 
+        CurrentDate += "0" + Month + "-"; 
+    } 
+    if (Day >= 10 ) 
+    { 
+        CurrentDate += Day ; 
+    } 
+    else
+    { 
+        CurrentDate += "0" + Day ; 
+    } 
+    $("#today").val(CurrentDate);
+    $("#week").val(weekday);
+
 	$("#VS").click(function(){
 		orange_lottery_judge();
 	});

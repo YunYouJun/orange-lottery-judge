@@ -2,9 +2,8 @@ function compare(mycode,enemycode,order){ //比大
 	if(order-1 > mycode.length){
 		return ;
 	}
-
 	var big;
-	if(order==0)	order = 7;
+
 	if(mycode[order-1] > enemycode[order-1]){
 		big = 1;
 	}else if(mycode[order-1] < enemycode[order-1]){
@@ -21,6 +20,10 @@ function lottery_judge(firstnum,secondnum,thirdnum,mycode,enemycode){
 	var odevity = count%2;
 	var date = new Date(); //获取当前日期，=。=如果开奖和查看隔了一天怎么办，……之后再说
 	var weekday	= date.getDay();
+	if(weekday==0)	weekday = 4;
+	else if (weekday>3) {
+		weekday = weekday -3;
+	}
 	if(odevity==1){
 		//奇数
 		flag = compare(enemycode,mycode,weekday);
