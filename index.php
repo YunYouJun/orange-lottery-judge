@@ -161,6 +161,10 @@ $regex5="/<span class=\"c-icon c-icon-ball-red op_caipiao_ball_red c-gap-right-s
 		//偶数
 		big_cn="大";
 	}
+    if(weekday==0)  weekday = 4;
+    else if (weekday>3) {
+        weekday = weekday -3;
+    }
 	var rule ="规则：第"+weekday+"位比"+big_cn;
 	$("#rule").html(rule);
 
