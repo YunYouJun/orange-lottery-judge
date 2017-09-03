@@ -13,4 +13,8 @@ Orange Union (Clash of clans) judge the winning and losing from lottery tickets.
 我方第二位“P"对方第二位”O"
 根据字母图，O比P小，所以这场我方输。 
 ---------------------------------------
-[原帖地址](http://tieba.baidu.com/p/4932945033?share=9105&fr=share&see_lz=0)
+原帖地址: <http://tieba.baidu.com/p/4932945033?share=9105&fr=share&see_lz=0>
+
+---
+
+线上地址: <http://clashofclans.yunyoujun.online/orange-lottery-judge.php>
