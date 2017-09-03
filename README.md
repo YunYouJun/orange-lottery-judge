@@ -17,4 +17,4 @@ Orange Union (Clash of clans) judge the winning and losing from lottery tickets.
 
 ---
 
-线上地址: <http://clashofclans.yunyoujun.online/orange-lottery-judge.php>
+线上地址: <http://clashofclans.yunyoujun.cn/orange-lottery-judge.php>
